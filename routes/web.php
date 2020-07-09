@@ -13,10 +13,29 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Auth::routes();
+
+// Controller General 
 Route::get('/', function () {
     return view('index');
 });
 
-Auth::routes();
+Route::get('/hot', function () {
+    return view('hot_issue/index');
+});
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+// Controller Master-master
+// Master Pertanyaan
+
+// Master Jawaban
+
+// Master Tags
+
+
+
+
+// Controller Transaksi
+
