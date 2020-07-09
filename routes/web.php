@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+<<<<<<< HEAD
 Auth::routes();
 
 // Controller General 
@@ -39,3 +40,18 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 // Controller Transaksi
 
+=======
+Route::get('/index', function () {
+    return view('index');
+});
+
+Route::get('/', function () {
+    return view('welcome');
+});
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/tambah-pertanyaan', 'PertanyaanController@tambah');
+>>>>>>> 89bc4d2582d8be971d9eaebd55d4aae1253fca86
