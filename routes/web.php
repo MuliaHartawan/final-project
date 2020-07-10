@@ -16,9 +16,7 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 // Controller General 
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/', 'DashboardController@index');
 
 Route::get('/hot', function () {
     return view('hot_issue/index');
