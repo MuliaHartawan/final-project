@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 Auth::routes();
 
 // Controller General 
@@ -36,6 +37,7 @@ Route::get('/new', function () {
 
 // Controller Master-master
 // Master Pertanyaan
+Route::get('/tambah-pertanyaan', 'PertanyaanController@tambah');
 
 // Master Jawaban
 
@@ -45,5 +47,3 @@ Route::get('/new', function () {
 
 
 // Controller Transaksi
-
-
