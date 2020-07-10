@@ -95,7 +95,6 @@
       </div>
     </li>
 
-<<<<<<< HEAD
     <!-- Nav Item - Messages -->
     <li class="nav-item dropdown no-arrow mx-1">
       <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown"
@@ -159,9 +158,7 @@
     </li>
 
     <div class="topbar-divider d-none d-sm-block"></div>
-=======
-           
->>>>>>> d99f54e64a275db7dc93b11475d1f2af4e8f3868
+
 
     <!-- Nav Item - User Information -->
     <li class="nav-item dropdown no-arrow">
