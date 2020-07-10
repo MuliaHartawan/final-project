@@ -29,51 +29,51 @@
           <i class="fas fa-fw fa-question-circle"></i>
           <span>New Issue</span></a>
       </li>
+      @guest
+        <!-- Divider -->
+        <hr class="sidebar-divider">
 
-      <!-- Divider -->
-      <hr class="sidebar-divider">
+        <li class="nav-item active">
+          <a class="nav-link" href="{{ url('/login') }}">
+            <i class="fas fa-fw fa-lock"></i>
+            <span>Login </span></a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="{{ url('/register') }}">
+            <i class="fas fa-fw fa-clipboard"></i>
+            <span>Register </span></a>
+        </li>
+      @else 
+        <!-- Divider -->
+        <hr class="sidebar-divider">
 
-      <li class="nav-item active">
-        <a class="nav-link" href="{{ url('/login') }}">
-          <i class="fas fa-fw fa-lock"></i>
-          <span>Login </span></a>
-      </li>
+        <!-- Heading -->
+        <div class="sidebar-heading">
+          My Profile
+        </div>
 
-      <!-- Divider -->
-      <hr class="sidebar-divider">
-
-      <!-- Heading -->
-      <div class="sidebar-heading">
-        My Profile
-      </div>
-
-      <!-- Nav Item - Pages Collapse Menu -->
-      <li class="nav-item">
-        <a class="nav-link" href="charts.html">
-          <i class="fas fa-fw fa-user"></i>
-          <span>Profile</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="charts.html">
-          <i class="fas fa-fw fa-question-circle"></i>
-          <span>Pertanyaan-Ku</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="charts.html">
-          <i class="fas fa-fw fa-comment-alt"></i>
-          <span>Jawaban-Ku</span></a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="charts.html">
-          <i class="fas fa-fw fa-comments"></i>
-          <span>Komentar-Ku</span></a>
-      </li>
-       <hr class="sidebar-divider">
-      <li class="nav-item">
-        <a class="nav-link" href="charts.html">
-          <i class="fas fa-fw fa-sign-out-alt"></i>
-          <span>Logout</span></a>
-      </li>
+        <!-- Nav Item - Pages Collapse Menu -->
+        <li class="nav-item">
+          <a class="nav-link" href="charts.html">
+            <i class="fas fa-fw fa-user"></i>
+            <span>Profile</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="charts.html">
+            <i class="fas fa-fw fa-question-circle"></i>
+            <span>Pertanyaan-Ku</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="charts.html">
+            <i class="fas fa-fw fa-comment-alt"></i>
+            <span>Jawaban-Ku</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="charts.html">
+            <i class="fas fa-fw fa-comments"></i>
+            <span>Komentar-Ku</span></a>
+        </li>
+      @endguest
 
       <!-- Sidebar Toggler (Sidebar) -->
       <div class="text-center d-none d-md-inline">
