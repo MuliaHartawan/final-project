@@ -68,6 +68,12 @@
           <i class="fas fa-fw fa-comments"></i>
           <span>Komentar-Ku</span></a>
       </li>
+       <hr class="sidebar-divider">
+      <li class="nav-item">
+        <a class="nav-link" href="charts.html">
+          <i class="fas fa-fw fa-sign-out-alt"></i>
+          <span>Logout</span></a>
+      </li>
 
       <!-- Sidebar Toggler (Sidebar) -->
       <div class="text-center d-none d-md-inline">

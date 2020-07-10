@@ -152,8 +152,8 @@
                           <span class="badge badge-primary">Framework</span>&nbsp;
                            <span class="badge badge-primary">Artisan</span>
                        </div>
-                       <div class="row">
-                         <p><small class="text-right">Tayang : 20 Juni 2020</small></p>
+                       <div class="row"> 
+                          <div class="col-md-12 text-right"><small>Tanya : 2020-06-01 17:00:00<br>Post by : <a href='#'>People Sanbercode</a></small></div>
                        </div>
                        
 
@@ -166,7 +166,7 @@
               <!-- Approach -->
               <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary"><i class='fas fa-question'></i> New Issue</h6>
+                  <h6 class="m-0 font-weight-bold text-primary"><i class='fas fa-question-circle'></i> New Issue</h6>
                 </div>
                 <div class="card-body">
                    <div class="row">
@@ -189,8 +189,8 @@
                           <span class="badge badge-primary">Framework</span>&nbsp;
                            <span class="badge badge-primary">Artisan</span>
                        </div>
-                       <div class="row">
-                         <p><small class="text-right">Tayang : 20 Juni 2020</small></p>
+                       <div class="row"> 
+                          <div class="col-md-12 text-right"><small>Tanya : 2020-06-01 17:00:00<br>Post by : <a href='#'>People Sanbercode</a></small></div>
                        </div>
 
                      </div>
