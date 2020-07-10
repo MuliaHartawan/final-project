@@ -4,10 +4,10 @@
 
       <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ url('/ ') }}">
-        <div class="sidebar-brand-icon">
-          <img src="{{ asset('img/laravel.png') }}">
+         <div class="sidebar-brand-icon rotate-n-15">
+          <i class="fas fa-newspaper"></i>
         </div>
-        <div class="sidebar-brand-text mx-3">laravelKu <sup>2</sup></div>
+        <div class="sidebar-brand-text mx-3">Sanber <sup>Overflow</sup></div>
       </a>
 
       <!-- Divider -->
@@ -19,28 +19,54 @@
           <i class="fas fa-fw fa-tachometer-alt"></i>
           <span>Dashboard</span></a>
       </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="{{ url('/hot') }}">
+          <i class="fas fa-fw fa-fire"></i>
+          <span>Hot Issue</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="{{ url('/new') }}">
+          <i class="fas fa-fw fa-question-circle"></i>
+          <span>New Issue</span></a>
+      </li>
+
+      <!-- Divider -->
+      <hr class="sidebar-divider">
+
+      <li class="nav-item active">
+        <a class="nav-link" href="{{ url('/login') }}">
+          <i class="fas fa-fw fa-lock"></i>
+          <span>Login </span></a>
+      </li>
 
       <!-- Divider -->
       <hr class="sidebar-divider">
 
       <!-- Heading -->
       <div class="sidebar-heading">
-        Master
+        My Profile
       </div>
 
       <!-- Nav Item - Pages Collapse Menu -->
       <li class="nav-item">
-        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+        <a class="nav-link" href="charts.html">
           <i class="fas fa-fw fa-user"></i>
-          <span>Master</span>
-        </a>
-        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-          <div class="bg-white py-2 collapse-inner rounded">
-            <h6 class="collapse-header">Data</h6>
-            <a class="collapse-item" href="{{url ('#') }}">Table</a>
-            <a class="collapse-item" href="cards.html"></a>
-          </div>
-        </div>
+          <span>Profile</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="charts.html">
+          <i class="fas fa-fw fa-question-circle"></i>
+          <span>Pertanyaan-Ku</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="charts.html">
+          <i class="fas fa-fw fa-comment-alt"></i>
+          <span>Jawaban-Ku</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="charts.html">
+          <i class="fas fa-fw fa-comments"></i>
+          <span>Komentar-Ku</span></a>
       </li>
 
       <!-- Sidebar Toggler (Sidebar) -->

@@ -1368,6 +1368,8 @@
                 "datetime",
                 "time"
             ],
+<<<<<<< HEAD
+=======
             "funding": [
                 {
                     "url": "https://opencollective.com/Carbon",
@@ -1378,6 +1380,7 @@
                     "type": "tidelift"
                 }
             ],
+>>>>>>> 89bc4d2582d8be971d9eaebd55d4aae1253fca86
             "time": "2020-07-04T12:29:56+00:00"
         },
         {
@@ -2328,6 +2331,8 @@
             ],
             "description": "A generic function and convention to trigger deprecation notices",
             "homepage": "https://symfony.com",
+<<<<<<< HEAD
+=======
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -2342,6 +2347,7 @@
                     "type": "tidelift"
                 }
             ],
+>>>>>>> 89bc4d2582d8be971d9eaebd55d4aae1253fca86
             "time": "2020-06-06T08:49:21+00:00"
         },
         {
@@ -2561,6 +2567,8 @@
                 "interoperability",
                 "standards"
             ],
+<<<<<<< HEAD
+=======
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -2575,6 +2583,7 @@
                     "type": "tidelift"
                 }
             ],
+>>>>>>> 89bc4d2582d8be971d9eaebd55d4aae1253fca86
             "time": "2020-07-06T13:23:11+00:00"
         },
         {
@@ -3815,6 +3824,8 @@
                 "interoperability",
                 "standards"
             ],
+<<<<<<< HEAD
+=======
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -3829,6 +3840,7 @@
                     "type": "tidelift"
                 }
             ],
+>>>>>>> 89bc4d2582d8be971d9eaebd55d4aae1253fca86
             "time": "2020-07-06T13:23:11+00:00"
         },
         {
@@ -4067,6 +4079,8 @@
                 "interoperability",
                 "standards"
             ],
+<<<<<<< HEAD
+=======
             "funding": [
                 {
                     "url": "https://symfony.com/sponsor",
@@ -4081,6 +4095,7 @@
                     "type": "tidelift"
                 }
             ],
+>>>>>>> 89bc4d2582d8be971d9eaebd55d4aae1253fca86
             "time": "2020-07-06T13:23:11+00:00"
         },
         {
@@ -4769,6 +4784,18 @@
         },
         {
             "name": "mockery/mockery",
+<<<<<<< HEAD
+            "version": "1.4.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/mockery/mockery.git",
+                "reference": "1404386ca3410b04fe58b9517e85d702ab33b2c6"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/mockery/mockery/zipball/1404386ca3410b04fe58b9517e85d702ab33b2c6",
+                "reference": "1404386ca3410b04fe58b9517e85d702ab33b2c6",
+=======
             "version": "1.3.2",
             "source": {
                 "type": "git",
@@ -4779,15 +4806,26 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/mockery/mockery/zipball/9b6f117dd7d36dc3858d8d8ddf9b3d584fcae283",
                 "reference": "9b6f117dd7d36dc3858d8d8ddf9b3d584fcae283",
+>>>>>>> 89bc4d2582d8be971d9eaebd55d4aae1253fca86
                 "shasum": ""
             },
             "require": {
                 "hamcrest/hamcrest-php": "^2.0.1",
                 "lib-pcre": ">=7.0",
+<<<<<<< HEAD
+                "php": "^7.3 || ^8.0"
+            },
+            "conflict": {
+                "phpunit/phpunit": "<8.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^8.5 || ^9.0"
+=======
                 "php": ">=5.6.0"
             },
             "require-dev": {
                 "phpunit/phpunit": "~5.7.10|~6.5|~7.0|~8.0|~9.0"
+>>>>>>> 89bc4d2582d8be971d9eaebd55d4aae1253fca86
             },
             "type": "library",
             "extra": {
@@ -4830,7 +4868,11 @@
                 "test double",
                 "testing"
             ],
+<<<<<<< HEAD
+            "time": "2020-07-09T08:31:54+00:00"
+=======
             "time": "2020-07-09T08:23:05+00:00"
+>>>>>>> 89bc4d2582d8be971d9eaebd55d4aae1253fca86
         },
         {
             "name": "myclabs/deep-copy",
