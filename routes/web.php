@@ -35,7 +35,7 @@ Route::get('/new', function () {
 
 // Controller Master-master
 // Master Pertanyaan
-Route::get('/tambah-pertanyaan', 'PertanyaanController@tambah');
+Route::get('/tambah/pertanyaan', 'PertanyaanController@tambah');
 
 // Master Jawaban
 
@@ -58,4 +58,6 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/tambah/pertanyaan', 'PertanyaanController@tambah');
+ Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
+     \UniSharp\LaravelFilemanager\Lfm::routes();
+ });
