@@ -26,13 +26,10 @@ class DashboardController extends Controller
         $komentarPertanyaan = KomentarPertanyaan::all();
 
         // get Hot Issue
-        $pertanyaan_max_vote  = Pertanyaan::where('id', 4)->first();
-        //dd($pertanyaan_max_vote);
-        dd($pertanyaan_max_vote->getTotalJawaban());
-        // total comments
-        //var_dump( $post->total_comments );
-
+        $pertanyaanCountJawaban = Pertanyaan::withCount('jawaban')->orderBy('jawaban_count', 'DESC')->first();
+       
         // Get New Issue
+        $new_issue = Pertanyaan::withCount('jawaban')->orderBy('created_at', 'DESC')->first();
 
         
         
@@ -41,8 +38,8 @@ class DashboardController extends Controller
             'total_pertanyaan'  => count($pertanyaanAll),
             'total_vote' => count($pertanyaanVote) + count($jawabanVote),
             'total_komentar' => count($jawabanKomentar) + count($komentarPertanyaan),
-            'hot_issue' => '',
-            'new_issue' => '',
+            'hot_issue' => $pertanyaanCountJawaban,
+            'new_issue' => $new_issue
         );
 
         return view('index', $data);

@@ -30,5 +30,10 @@ class Jawaban extends Model
         $new_jawaban->save();
 
         return $new_jawaban;
-    } 
+    }
+    
+    public function pertanyaaan(){
+
+        return $this->belongsTo('App\Models\Pertanyaan');
+    }
 }

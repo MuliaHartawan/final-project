@@ -34,8 +34,10 @@ class Pertanyaan extends Model
         return $this->hasMany('App\Models\PertanyaanTag');
     }
 
-
-    public function getTotalJawaban(){
-        return $this->hasMany('App\Models\Jawaban')->whereUserId($this->pertanyaan_id)->count();    
+    // Many to One dengan User
+    public function user(){
+        return $this->belongsTo('App\User');
     }
+
+    
 }

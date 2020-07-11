@@ -88,6 +88,84 @@
   <!-- Content Row -->
   <div class="row">
 
+    <div class="col-lg-6 mb-4">
+
+      <!-- Illustrations -->
+      <div class="card shadow mb-4">
+        <div class="card-header py-3">
+          <h6 class="m-0 font-weight-bold text-primary"><i class='fas fa-fire'></i> Hot Issue</h6>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-2">
+              <div class="row">
+                <a href='#' class="btn btn-default">{{ number_format($hot_issue->sum_vote) }}<br>votes</a>
+              </div>
+              <div class="row">
+              <a href='#' class="btn btn-success">{{ $hot_issue->jawaban_count }}<br>answer</a>
+              </div>
+            </div>
+            <div class="col-md-10">
+              <div class="row">
+                <p><a href='/jawaban/{{ $hot_issue->id }}'>{{ $hot_issue->judul }}</a>
+                  <p>
+                    <p>{{ $hot_issue->isi }}</p>
+              </div>
+              <div class="row">
+                <span class="badge badge-primary">Laravel</span>&nbsp;
+                <span class="badge badge-primary">PHP</span>&nbsp;
+                <span class="badge badge-primary">Framework</span>&nbsp;
+                <span class="badge badge-primary">Artisan</span>
+              </div>
+              <div class="row">
+                <div class="col-md-12 text-right"><small>Tanya : {{ $hot_issue->created_at }}<br>Post by : <a href='#'>{{ $new_issue->user->name}}</a></small></div>
+              </div>
+
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Approach -->
+      <div class="card shadow mb-4">
+        <div class="card-header py-3">
+          <h6 class="m-0 font-weight-bold text-primary"><i class='fas fa-question-circle'></i> New Issue</h6>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-2">
+              <div class="row">
+              <a href='#' class="btn btn-default">{{ number_format($new_issue->sum_vote) }}<br>votes</a>
+              </div>
+              <div class="row">
+                <a href='#' class="btn btn-success">{{ $new_issue->jawaban_count}}<br>answer</a>
+              </div>
+            </div>
+            <div class="col-md-10">
+              <div class="row">
+                <p><a href='/jawaban/{{ $new_issue->id }}'>{{ $new_issue->judul}}</a>
+                  <p>
+                    <p>{{ $new_issue->isi}}</p>
+              </div>
+              <div class="row">
+                <span class="badge badge-primary">Laravel</span>&nbsp;
+                <span class="badge badge-primary">PHP</span>&nbsp;
+                <span class="badge badge-primary">Framework</span>&nbsp;
+                <span class="badge badge-primary">Artisan</span>
+              </div>
+              <div class="row">
+                <div class="col-md-12 text-right"><small>Tanya : {{ $new_issue->created_at}}<br>Post by : <a href='#'>{{ $new_issue->user->name}}</a></small></div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
     <!-- Content Column -->
     <div class="col-lg-6 mb-4">
 
@@ -129,89 +207,7 @@
 
     </div>
 
-    <div class="col-lg-6 mb-4">
-
-      <!-- Illustrations -->
-      <div class="card shadow mb-4">
-        <div class="card-header py-3">
-          <h6 class="m-0 font-weight-bold text-primary"><i class='fas fa-fire'></i> Hot Issue</h6>
-        </div>
-        <div class="card-body">
-          <div class="row">
-            <div class="col-md-2">
-              <div class="row">
-                <a href='#' class="btn btn-default">825<br>votes</a>
-              </div>
-              <div class="row">
-                <a href='#' class="btn btn-success">25<br>answer</a>
-              </div>
-            </div>
-            <div class="col-md-10">
-              <div class="row">
-                <p><a href='#'>Pertanyaan No 1 ?</a>
-                  <p>
-                    <p>SB Admin 2 makes extensive use of Bootstrap 4 utility classes in order to reduce CSS bloat and
-                      poor page performance. Custom CSS classes are used to create custom components and custom utility
-                      classes.</p>
-              </div>
-              <div class="row">
-                <span class="badge badge-primary">Laravel</span>&nbsp;
-                <span class="badge badge-primary">PHP</span>&nbsp;
-                <span class="badge badge-primary">Framework</span>&nbsp;
-                <span class="badge badge-primary">Artisan</span>
-              </div>
-              <div class="row">
-                <div class="col-md-12 text-right"><small>Tanya : 2020-06-01 17:00:00<br>Post by : <a href='#'>People
-                      Sanbercode</a></small></div>
-              </div>
-
-
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-      <!-- Approach -->
-      <div class="card shadow mb-4">
-        <div class="card-header py-3">
-          <h6 class="m-0 font-weight-bold text-primary"><i class='fas fa-question-circle'></i> New Issue</h6>
-        </div>
-        <div class="card-body">
-          <div class="row">
-            <div class="col-md-2">
-              <div class="row">
-                <a href='#' class="btn btn-default">10<br>votes</a>
-              </div>
-              <div class="row">
-                <a href='#' class="btn btn-success">2<br>answer</a>
-              </div>
-            </div>
-            <div class="col-md-10">
-              <div class="row">
-                <p><a href='#'>Pertanyaan Baru ?</a>
-                  <p>
-                    <p>SB Admin 2 makes extensive use of Bootstrap 4 utility classes in order to reduce CSS bloat and
-                      poor page performance. Custom CSS classes are used to create custom components and custom utility
-                      classes.</p>
-              </div>
-              <div class="row">
-                <span class="badge badge-primary">Laravel</span>&nbsp;
-                <span class="badge badge-primary">PHP</span>&nbsp;
-                <span class="badge badge-primary">Framework</span>&nbsp;
-                <span class="badge badge-primary">Artisan</span>
-              </div>
-              <div class="row">
-                <div class="col-md-12 text-right"><small>Tanya : 2020-06-01 17:00:00<br>Post by : <a href='#'>People
-                      Sanbercode</a></small></div>
-              </div>
-
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
+    
   </div>
 
 </div>
