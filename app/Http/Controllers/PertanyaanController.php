@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Pertanyaan;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Auth;
 
 class PertanyaanController extends Controller
 {
@@ -25,7 +28,7 @@ class PertanyaanController extends Controller
     {
         //
 
-        return view('pertanyaan.tambah');
+        return view('pertanyaan.create');
     }
 
     /**
@@ -47,7 +50,11 @@ class PertanyaanController extends Controller
      */
     public function show($id)
     {
-        //
+        $id = Auth::id();
+        $pertanyaan = Pertanyaan::where('user_id', $id)->get();
+        
+        return view('pertanyaan.show', ['pertanyaan' => $pertanyaan]);
+        
     }
 
     /**
@@ -80,6 +87,7 @@ class PertanyaanController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
+
     {
         //
     }
