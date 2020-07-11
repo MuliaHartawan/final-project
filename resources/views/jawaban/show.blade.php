@@ -1,6 +1,6 @@
 @extends('layout/master')
 
-@section('title', 'Lihat Pertanyaan')
+@section('title', 'Lihat Jawabanku')
 
 @section('content')
 	<!-- Begin Page Content -->
