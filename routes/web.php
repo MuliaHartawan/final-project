@@ -18,44 +18,16 @@ Auth::routes();
 // Controller General 
 Route::get('/', 'DashboardController@index');
 
-Route::get('/hot', function () {
-    return view('hot_issue/index');
-});
+Route::get('/hot', 'IssueController@hot');
 
-Route::get('/viewadd', function () {
-    return view('hot_issue/contohviewadd');
-});
+Route::get('/viewadd', 'IssueController@new');
 
-Route::get('/new', function () {
-    return view('new_issue/index');
-});
-
-//Route::get('/home', 'HomeController@index')->name('home');
-
+Route::get('/new', 'IssueController@new');
 
 // Controller Master-master
 // Master Pertanyaan
-Route::get('/tambah-pertanyaan', 'PertanyaanController@tambah');
+Route::resource('pertanyaan', 'PertanyaanController');
 
 // Master Jawaban
+Route::resource('jawaban', 'JawabanController');
 
-// Master Tags
-
-
-
-
-// Controller Transaksi
-
-Route::get('/index', function () {
-    return view('index');
-});
-
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Auth::routes();
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-Route::get('/tambah/pertanyaan', 'PertanyaanController@tambah');

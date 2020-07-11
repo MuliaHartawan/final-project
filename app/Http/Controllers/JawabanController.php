@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\Jawaban;
+use App\Models\Pertanyaan;
 
 class JawabanController extends Controller
 {
@@ -47,7 +48,16 @@ class JawabanController extends Controller
      */
     public function show($id)
     {
+        // get Pertanyaan
+        $pertanyaan = Pertanyaan::withCount('jawaban')->where('id', $id)->first();
+
+        // get jawaban true
+        
+        $data = array(
+            'pertanyaan' => $pertanyaan
+        );
         //
+        return view('jawaban.show', $data);
     }
 
     /**
