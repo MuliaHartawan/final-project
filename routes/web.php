@@ -45,3 +45,17 @@ Route::get('/tambah-pertanyaan', 'PertanyaanController@tambah');
 
 
 // Controller Transaksi
+
+Route::get('/index', function () {
+    return view('index');
+});
+
+Route::get('/', function () {
+    return view('welcome');
+});
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/tambah/pertanyaan', 'PertanyaanController@tambah');
