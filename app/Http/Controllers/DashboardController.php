@@ -28,7 +28,7 @@ class DashboardController extends Controller
         // get Hot Issue
         $pertanyaan_max_vote  = Pertanyaan::where('id', 4)->first();
         //dd($pertanyaan_max_vote);
-        dd($pertanyaan_max_vote->getTotalJawaban());
+        //dd($pertanyaan_max_vote->getTotalJawaban());
         // total comments
         //var_dump( $post->total_comments );
 
