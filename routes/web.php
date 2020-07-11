@@ -16,19 +16,26 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 
 // Controller General 
-Route::get('/', function () {
-    return view('index');
-});
+Route::get('/', 'DashboardController@index');
 
 Route::get('/hot', function () {
     return view('hot_issue/index');
 });
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/viewadd', function () {
+    return view('hot_issue/contohviewadd');
+});
+
+Route::get('/new', function () {
+    return view('new_issue/index');
+});
+
+//Route::get('/home', 'HomeController@index')->name('home');
 
 
 // Controller Master-master
 // Master Pertanyaan
+Route::get('/tambah-pertanyaan', 'PertanyaanController@tambah');
 
 // Master Jawaban
 

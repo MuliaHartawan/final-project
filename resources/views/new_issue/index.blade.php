@@ -20,16 +20,16 @@
               <!-- Illustrations -->
               <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                  <h6 class="m-0 font-weight-bold text-primary"><i class='fas fa-fire'></i> Hot Issue</h6>
+                  <h6 class="m-0 font-weight-bold text-primary"><i class='fas fa-question-circle'></i> New Issue</h6>
                 </div>
                 <div class="card-body">
                    <div class="row">
                      <div class="col-md-2">
                        <div class="row justify-content-md-center">
-                         <a href='#' class="btn btn-default">825<br>votes</a>
+                         <a href='#' class="btn btn-default">0<br>votes</a>
                        </div>
                        <div class="row justify-content-md-center">
-                          <a href='#' class="btn btn-success">25<br>answer</a>
+                          <a href='#' class="btn btn-success">0<br>answer</a>
                        </div>
                      </div>
                      <div class="col-md-10">
@@ -56,10 +56,10 @@
                    <div class="row">
                      <div class="col-md-2">
                        <div class="row justify-content-md-center">
-                         <a href='#' class="btn btn-default">825<br>votes</a>
+                         <a href='#' class="btn btn-default">0<br>votes</a>
                        </div>
                        <div class="row justify-content-md-center">
-                          <a href='#' class="btn btn-success">25<br>answer</a>
+                          <a href='#' class="btn btn-success">1<br>answer</a>
                        </div>
                      </div>
                      <div class="col-md-10">
@@ -86,10 +86,10 @@
                    <div class="row">
                      <div class="col-md-2">
                        <div class="row justify-content-md-center">
-                         <a href='#' class="btn btn-default">825<br>votes</a>
+                         <a href='#' class="btn btn-default">3<br>votes</a>
                        </div>
                        <div class="row justify-content-md-center">
-                          <a href='#' class="btn btn-success">25<br>answer</a>
+                          <a href='#' class="btn btn-success">0<br>answer</a>
                        </div>
                      </div>
                      <div class="col-md-10">
