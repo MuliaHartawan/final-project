@@ -1,5 +1,9 @@
 @extends('layout/master')
 
+@push('script-head')
+  <script src="//cdn.ckeditor.com/4.6.2/standard/ckeditor.js"></script>    
+@endpush
+
 @section('title', 'Dashboard')
 
 @section('content')
@@ -46,6 +50,10 @@
               @enderror
               </div>
 
+              <textarea id="my-editor" name="content"
+                class="form-control">{!! old('content', 'test editor content') !!}</textarea>
+              
+              
               <div class="form-group">
                 <label for="Tags">Tags : </label>
                 <input type="text" name="tags" id="tags" class="form-control" placeholder="Isi Tags">

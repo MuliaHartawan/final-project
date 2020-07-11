@@ -4,8 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Models\Pertanyaan;
 use Illuminate\Http\Request;
+<<<<<<< HEAD
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Validator;
+=======
+use App\Models\Pertanyaan;
+use Illuminate\Database\Eloquent\Model;
+>>>>>>> bd585f2eba71165cf6566b584dbc2d538bbea2ea
 use Illuminate\Support\Facades\Auth;
 
 class PertanyaanController extends Controller
@@ -29,7 +34,7 @@ class PertanyaanController extends Controller
     {
         //
 
-        return view('pertanyaan.tambah');
+        return view('pertanyaan.create');
     }
 
     /**
@@ -73,7 +78,11 @@ class PertanyaanController extends Controller
      */
     public function show($id)
     {
-        //
+        $id = Auth::id();
+        $pertanyaan = Pertanyaan::where('user_id', $id)->get();
+        
+        return view('pertanyaan.show', ['pertanyaan' => $pertanyaan]);
+        
     }
 
     /**
@@ -106,6 +115,7 @@ class PertanyaanController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
+
     {
         //
     }

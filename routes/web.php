@@ -24,6 +24,9 @@ Route::get('/viewadd', 'IssueController@new');
 
 Route::get('/new', 'IssueController@new');
 
+Route::get('/pertanyaan/create', 'PertanyaanController@create');
+
+
 // Controller Master-master
 // Master Pertanyaan
 Route::resource('pertanyaan', 'PertanyaanController');
