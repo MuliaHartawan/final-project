@@ -24,45 +24,37 @@
         </div>
         <div class="card-body">
           <div class="row">
-            <form action="" class="col-lg-12">
+            <form action="{{url('/pertanyaan/')}}" method="post" class="col-lg-12">
               {{ csrf_field() }}
 
               <div class="form-group">
                 <label for="Judul">Judul : </label>
-                <input type="text" name="judul" class="form-control" placeholder="Judul Pertanyaan .. ">
+                <input type="text" name="judul" id="judul" class="form-control @error('judul') is-invalid @enderror" placeholder="Judul Pertanyaan">
 
-                @if ($errors->has('judul'))
-                <div class="text-danger">
-                  {{ $errors->first('judul') }}
-                </div>
-                @endif
+                @error('judul')
+                        <div class="text-danger">{{ $message }}</div>
+                @enderror
               </div>
 
               <div class="form-group">
                 <label for="Isi">Pertanyaan : </label>
-                <textarea name="isi_tanya" class="form-control" placeholder="Isi Pertanyaan .. ">
+                <textarea name="isi_tanya" id="isi_nanya" class="form-control @error('isi_tanya') is-invalid @enderror" placeholder="Isi Pertanyaan">
                 </textarea>
 
-                @if ($errors->has('isi_tanya'))
-                <div class="text-danger">
-                  {{ $errors->first('isi_tanya') }}
-                </div>
-                @endif
+               @error('isi_tanya')
+                        <div class="text-danger">{{ $message }}</div>
+              @enderror
               </div>
 
               <div class="form-group">
                 <label for="Tags">Tags : </label>
-                <input type="text" name="tags" class="form-control" placeholder="Isi Tags .. ">
+                <input type="text" name="tags" id="tags" class="form-control" placeholder="Isi Tags">
               </div>
 
-              <div class="form-group">
-                <input type="submit" class="btn btn-success" value="Simpan">
-              </div>
+              
+                <button type="submit" class="btn btn-success">Simpan</button>
             </form>
           </div>
-
-          <hr>
-
         </div>
       </div>
 
@@ -78,3 +70,10 @@
 <!-- End of Main Content -->
 
 @endsection
+
+  @push('ckEditor')
+  <script src="https://cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
+  <script>
+      CKEDITOR.replace( 'isi_tanya' );
+  </script>
+  @endpush

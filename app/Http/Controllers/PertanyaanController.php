@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Pertanyaan;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Auth;
 
 class PertanyaanController extends Controller
 {
@@ -37,6 +41,28 @@ class PertanyaanController extends Controller
     public function store(Request $request)
     {
         //
+         $messages = [
+            'required' => 'Kolom Tidak Boleh Kosong'
+        ];  
+
+        //rules validasi inputan user
+        Validator::make($request->all(), [
+            'judul' => 'required',
+            'isi_tanya' => 'required'
+        ], $messages)->validate();
+        
+        $user_id = Auth::user()->id;
+
+        $data = $request->all();
+
+        Pertanyaan::create([
+            'judul' => $data['judul'],
+            'isi_tanya' => $data['isi_tanya'],
+            'tags' => $data['tags'],
+            'user_id' => $user_id
+        ]);
+
+        return redirect('/pertanyaan');
     }
 
     /**

@@ -90,6 +90,8 @@
         $("#example1").DataTable();
       });
   </script>
+  @stack('ckEditor')
+
 
 </body>
 

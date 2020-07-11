@@ -9,6 +9,8 @@ class Pertanyaan extends Model
     //
 
     protected $table = 'pertanyaan';
+    protected $fillble = ['judul', 'isi', 'tags', 'user_id', 'slug', 'sum_vote'];
+    protected $guard = [];
     
     // One to Many dengan Jawaban
     public function jawaban(){
