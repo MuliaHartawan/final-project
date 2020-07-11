@@ -41,12 +41,16 @@
                                 <p><a href='/jawaban/{{ $pertanyaan->id }}'>{{ $pertanyaan->judul }}</a><p>
                                   <p>{{ $pertanyaan->isi }}</p>                       
                                 </div>
-                                <div class="row">
-                                <span class="badge badge-primary">Laravel</span>&nbsp;
-                                <span class="badge badge-primary">PHP</span>&nbsp;
-                                  <span class="badge badge-primary">Framework</span>&nbsp;
-                                    <span class="badge badge-primary">Artisan</span>
-                                </div>
+                                @if($pertanyaan->tags)
+                                  @php
+                                  $tags_explode_hot = explode(",", $pertanyaan->tags);
+                                  @endphp
+                                  <div class="row">
+                                  @foreach( $tags_explode_hot as $value)
+                                    <span class="badge badge-primary">{{ $value }}</span>&nbsp;
+                                  @endforeach
+                                  </div>
+                                @endif
                                 <div class="row"> 
                                   <div class="col-md-12 text-right"><small>Tanya : {{ $pertanyaan->created_at }}<br>Post by : <a href='#'>{{ $pertanyaan->user->name }}</a></small></div>
                                 </div>

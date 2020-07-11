@@ -29,7 +29,7 @@
                           <a href='#' class="btn btn-primary btn-sm" style="width: 78px !important;"><i class="fa fa-caret-up"></i></a>
                        </div>
                        <div class="row justify-content-md-center">
-                         <a href='#' class="btn btn-default">{{ $pertanyaan->sum_vote }}<br>votes</a>
+                         <a href='#' class="btn btn-default">{{ number_format($pertanyaan->sum_vote) }}<br>votes</a>
                        </div>
                        <div class="row justify-content-md-center">
                           <a href='#' class="btn btn-danger btn-sm " style="width: 78px !important;"><i class="fa fa-caret-down"></i></a>
@@ -40,12 +40,16 @@
                         <p><a href='#'>{{ $pertanyaan->judul }}</a><p>
                          <p>{{ $pertanyaan->isi }}</p>                       
                        </div>
-                       <div class="row">
-                        <span class="badge badge-primary">Laravel</span>&nbsp;
-                        <span class="badge badge-primary">PHP</span>&nbsp;
-                          <span class="badge badge-primary">Framework</span>&nbsp;
-                           <span class="badge badge-primary">Artisan</span>
-                       </div>
+                       @if($pertanyaan->tags)
+                          @php
+                          $tags_explode_hot = explode(",", $pertanyaan->tags);
+                          @endphp
+                          <div class="row">
+                          @foreach( $tags_explode_hot as $value)
+                            <span class="badge badge-primary">{{ $value }}</span>&nbsp;
+                          @endforeach
+                          </div>
+                        @endif
                        <div class="row"> 
                           <div class="col-md-12 text-right"><small>Tanya : {{ $pertanyaan->created_at }}<br>Post by : <a href='#'>{{ $pertanyaan->user->name }}</a></small><br><a href="#" class="btn btn-sm btn-warning"><i class="fa fa-comment"></i> Tulis Komentar</a></div>
                        </div>

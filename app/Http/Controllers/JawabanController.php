@@ -51,7 +51,10 @@ class JawabanController extends Controller
         // get Pertanyaan
         $pertanyaan = Pertanyaan::withCount('jawaban')->where('id', $id)->first();
 
+        //get comentar pertanyaan
+
         // get jawaban true
+
         
         $data = array(
             'pertanyaan' => $pertanyaan
