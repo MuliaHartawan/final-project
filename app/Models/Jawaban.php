@@ -12,7 +12,7 @@ class Jawaban extends Model
 
     // whitelist
     // Menggunakan Jawaban::create(array_asosiatif)
-    protected $fillable = ['jawaban', 'is_true', 'sum_vote'];
+    protected $fillable = ['jawaban', 'is_true', 'pertanyaan_id', 'user_id', 'sum_vote'];
 
     protected $guarded = [];
     //Blacklist
@@ -35,5 +35,16 @@ class Jawaban extends Model
     public function pertanyaaan(){
 
         return $this->belongsTo('App\Models\Pertanyaan');
+    }
+
+    // Many to One dengan User
+    public function user(){
+        return $this->belongsTo('App\User');
+    }
+
+    // One to Many dengan Komentar Pertanyaan
+    public function jawabankomentar(){
+        
+        return $this->hasMany('App\Models\JawabanKomentar');
     }
 }

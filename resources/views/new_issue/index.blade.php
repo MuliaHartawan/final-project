@@ -3,18 +3,14 @@
 @section('title', 'Dashboard')
 
 @section('content')
-	<!-- Begin Page Content -->
-        <div class="container-fluid">
+<!-- Begin Page Content -->
+<div class="container-fluid">
 
-          <!-- Page Heading -->
+  <!-- Page Heading -->
+   <!-- Content Row -->
+   <div class="row">
 
-          <!-- Content Row -->
-
-
-         
-          <!-- Content Row -->
-          <div class="row">
-
+  <!-- Content Row -->
             <div class="col-lg-12 mb-4">
                 <a href='/pertanyaan/create' class="btn btn-md btn-primary"><i class="fa fa-plus"></i> Pertanyaan</a>
                 <Br>
@@ -38,8 +34,8 @@
                               </div>
                               <div class="col-md-10">
                               <div class="row">
-                                <p><a href='/jawaban/{{ $pertanyaan->id }}'>{{ $pertanyaan->judul }}</a><p>
-                                  <p>{{ $pertanyaan->isi }}</p>                       
+                                <p><a href='/jawaban/{{ $pertanyaan->slug }}'>{{ $pertanyaan->judul }}</a><p>
+                                  <p>{!! $pertanyaan->isi !!}</p>                       
                                 </div>
                                 @if($pertanyaan->tags)
                                   @php

@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 
 use App\Models\Jawaban;
 use App\Models\Pertanyaan;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Auth;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class JawabanController extends Controller
 {
@@ -26,7 +29,17 @@ class JawabanController extends Controller
      */
     public function create()
     {
-        //
+        
+
+        return view('jawaban.create');
+    }
+
+    public function tambah($slug)
+    {
+        
+        $pertanyaan = Pertanyaan::where('slug', $slug)->first();
+
+        return view('jawaban.create', ['pertanyaan' => $pertanyaan]);
     }
 
     /**
@@ -38,6 +51,33 @@ class JawabanController extends Controller
     public function store(Request $request)
     {
         //
+         $messages = [
+            'required' => 'Kolom Tidak Boleh Kosong'
+        ];  
+        
+        //rules validasi inputan user
+        Validator::make($request->all(), [
+            'jawaban' => 'required',
+        ], $messages)->validate();
+        
+        // Get session user
+        $user_id = Auth::user()->id;
+       // dd($user_id);
+
+        // get post request
+        $data = $request->all();
+       // dd($request->all());
+        // Create to Database
+        $new_jawaban = Jawaban::create([
+                            'jawaban' => $data['jawaban'],
+                            'pertanyaan_id' => $data['pertanyaan_id'],
+                            'user_id' => $user_id
+                        ]);
+    
+        
+        Alert::success('Berhasil', 'Menambahkan Jawaban Baru');
+
+        return redirect("/jawaban"."/".$data['slug']);
     }
 
     /**
@@ -46,18 +86,33 @@ class JawabanController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug)
     {
         // get Pertanyaan
-        $pertanyaan = Pertanyaan::withCount('jawaban')->where('id', $id)->first();
+        $pertanyaan = Pertanyaan::withCount('jawaban')->where('slug', $slug)->first();
 
-        //get comentar pertanyaan
+        // Jawaban Membantu
+        $jawaban_ok = $pertanyaan->jawaban;
+        $hasil_jawaban_ok = $jawaban_ok->filter(function($item) {
+            return $item->is_true == 'Y';
+        })->first();
 
-        // get jawaban true
+        //dd($jawaban_ok);
+        // Jawaban Lainnya
+        $hasil_jawaban_lainnya = $jawaban_ok->filter(function($items) {
+            return $items->is_true == 'N';
+        });
+        //dd($hasil_jawaban_lainnya);
+
+        // Get session user
+        $user_id = Auth::user()->id;
 
         
         $data = array(
-            'pertanyaan' => $pertanyaan
+            'session_user_id' => $user_id,
+            'pertanyaan' => $pertanyaan,
+            'hasil_jawaban_ok' => $hasil_jawaban_ok,
+            'hasil_jawaban_lainnya_arr' => $hasil_jawaban_lainnya
         );
         //
         return view('jawaban.show', $data);

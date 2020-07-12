@@ -39,8 +39,8 @@
                               </div>
                               <div class="col-md-10">
                               <div class="row">
-                              <p><a href='/jawaban/{{ $pertanyaan->id }}'>{{ $pertanyaan->judul }}</a><p>
-                                  <p>{{ $pertanyaan->isi }}</p>                       
+                                  <p><a href='/jawaban/{{ $pertanyaan->slug }}'>{{ $pertanyaan->judul }}</a></p>
+                                  <p>{!! $pertanyaan->isi !!}</p>                       
                                 </div>
                                 @if($pertanyaan->tags)
                                   @php

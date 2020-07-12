@@ -9,6 +9,8 @@ class Pertanyaan extends Model
     //
 
     protected $table = 'pertanyaan';
+    protected $fillable = ['judul', 'isi', 'tags', 'user_id', 'slug'];
+    protected $guard = [];
     
     // One to Many dengan Jawaban
     public function jawaban(){
@@ -37,6 +39,10 @@ class Pertanyaan extends Model
     // Many to One dengan User
     public function user(){
         return $this->belongsTo('App\User');
+    }
+
+    public function tags(){
+        return $this->belongsToMany('App\Models\Tag', 'pertanyaantags', 'pertanyaan_id', 'tag_id');
     }
 
     

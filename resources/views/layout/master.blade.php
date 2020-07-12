@@ -18,6 +18,9 @@
   <!-- Custom styles for this template-->
   <link href="{{ asset('admin/css/sb-admin-2.min.css')  }}" rel="stylesheet">
 
+  <!-- Custom CK EDITOR --> 
+  @stack('script-head')
+
 </head>
 
 <body id="page-top">
@@ -79,17 +82,16 @@
   <!-- Custom scripts for all pages-->
   <script src="{{ asset('admin/js/sb-admin-2.min.js') }}"></script>
 
-  <!-- Page level plugins -->
-  <script src="{{ asset('admin/vendor/chart.js/Chart.min.js') }}"></script>
-
-  <!-- Page level custom scripts -->
-  <script src="{{ asset('admin/js/demo/chart-area-demo.js') }}"></script>
-  <script src="{{ asset('admin/js/demo/chart-pie-demo.js') }}"></script>
   <script>
       $(function () {
         $("#example1").DataTable();
       });
   </script>
+  @stack('scripts')
+  @include('sweetalert::alert')
+  @stack('ckEditor')
+  
+
 
 </body>
 

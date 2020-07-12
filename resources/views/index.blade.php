@@ -107,9 +107,9 @@
             </div>
             <div class="col-md-10">
               <div class="row">
-                <p><a href='/jawaban/{{ $hot_issue->id }}'>{{ $hot_issue->judul }}</a>
+                <p><a href='/jawaban/{{ $hot_issue->slug }}'>{{ $hot_issue->judul }}</a>
                   <p>
-                    <p>{{ $hot_issue->isi }}</p>
+                    <p>{!! $hot_issue->isi !!}</p>
               </div>
               @if($hot_issue->tags)
                 @php
@@ -149,9 +149,9 @@
             </div>
             <div class="col-md-10">
               <div class="row">
-                <p><a href='/jawaban/{{ $new_issue->id }}'>{{ $new_issue->judul}}</a>
+                <p><a href='/jawaban/{{ $new_issue->slug }}'>{{ $new_issue->judul}}</a>
                   <p>
-                    <p>{{ $new_issue->isi}}</p>
+                    <p>{!! $new_issue->isi !!}</p>
               </div>
               @if($new_issue->tags)
                 @php

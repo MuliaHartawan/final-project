@@ -8,6 +8,11 @@ class KomentarPertanyaan extends Model
 {
     //
     protected $table = 'komentarpertanyaan';
+    protected $fillable = ['komentar', 'pertanyaan_id', 'user_id'];
+
+    protected $guarded = [];
+    //Blacklist
+
 
      // Many to One dengan User
      public function user(){
