@@ -26,6 +26,7 @@
                                 <th>Judul</th>
                                 <th>Isi</th>
                                 <th>Vote</th>
+                                <th>Tags</th>
                                 <th>Dijawab</th>
                                 <th width='10%'>Aksi</th>
                               </tr>
@@ -35,12 +36,17 @@
                                 @foreach($pertanyaan as $p)
                                 <tr>
                                   <td>{{ $p->judul }}</td>
-                                  <td>{{ $p->isi }}</td>
+                                  <td>{!! $p->isi !!}</td>
                                   <td width='5%' class="text-center">{{ number_format($p->sum_vote) }}</td>
+                                  <td>{{ $p->tags }}</td>
                                   <td width='5%' class="text-center"><a href="/jawaban/{{ $p->slug }}" class="btn btn-sm btn-success" data-toggle="tooltip" title="Klik untuk melihat Jawaban">{{ $p->jawaban_count }}</a></td>
                                   <td width='10%' class="text-center">
-                                    <a href="/pertanyaan/edit/{{ $p->id }}" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a>
-                                    <a href="/pertanyaan/hapus/{{ $p->id }}" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+                                    <a href="/pertanyaan/{{ $p->id }}/edit" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i></a>
+                                  <form action='/pertanyaan/{{ $p->id }}' method="POST" style="display: inline">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></button>
+                                  </form>
                                   </td>
                                 </tr>
                                 @endforeach

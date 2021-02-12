@@ -107,16 +107,20 @@
             </div>
             <div class="col-md-10">
               <div class="row">
-                <p><a href='/jawaban/{{ $hot_issue->id }}'>{{ $hot_issue->judul }}</a>
+                <p><a href='/jawaban/{{ $hot_issue->slug }}'>{{ $hot_issue->judul }}</a>
                   <p>
-                    <p>{{ $hot_issue->isi }}</p>
+                    <p>{!! $hot_issue->isi !!}</p>
               </div>
-              <div class="row">
-                <span class="badge badge-primary">Laravel</span>&nbsp;
-                <span class="badge badge-primary">PHP</span>&nbsp;
-                <span class="badge badge-primary">Framework</span>&nbsp;
-                <span class="badge badge-primary">Artisan</span>
-              </div>
+              @if($hot_issue->tags)
+                @php
+                $tags_explode_hot = explode(",", $hot_issue->tags);
+                @endphp
+                <div class="row">
+                @foreach( $tags_explode_hot as $value)
+                  <span class="badge badge-primary">{{ $value }}</span>&nbsp;
+                @endforeach
+                </div>
+              @endif
               <div class="row">
                 <div class="col-md-12 text-right"><small>Tanya : {{ $hot_issue->created_at }}<br>Post by : <a href='#'>{{ $new_issue->user->name}}</a></small></div>
               </div>
@@ -145,16 +149,21 @@
             </div>
             <div class="col-md-10">
               <div class="row">
-                <p><a href='/jawaban/{{ $new_issue->id }}'>{{ $new_issue->judul}}</a>
+                <p><a href='/jawaban/{{ $new_issue->slug }}'>{{ $new_issue->judul}}</a>
                   <p>
-                    <p>{{ $new_issue->isi}}</p>
+                    <p>{!! $new_issue->isi !!}</p>
               </div>
-              <div class="row">
-                <span class="badge badge-primary">Laravel</span>&nbsp;
-                <span class="badge badge-primary">PHP</span>&nbsp;
-                <span class="badge badge-primary">Framework</span>&nbsp;
-                <span class="badge badge-primary">Artisan</span>
-              </div>
+              @if($new_issue->tags)
+                @php
+                $tags_explode = explode(",", $new_issue->tags);
+                @endphp
+                <div class="row">
+                @foreach( $tags_explode as $val)
+                  <span class="badge badge-primary">{{ $val }}</span>&nbsp;
+                @endforeach
+                </div>
+              @endif
+             
               <div class="row">
                 <div class="col-md-12 text-right"><small>Tanya : {{ $new_issue->created_at}}<br>Post by : <a href='#'>{{ $new_issue->user->name}}</a></small></div>
               </div>

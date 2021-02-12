@@ -24,40 +24,34 @@
       <!-- Illustrations -->
       <div class="card shadow mb-4">
         <div class="card-header py-3">
-          <h6 class="m-0 font-weight-bold text-primary"><i class='fas fa-question-circle'></i> New Issue</h6>
+          <h6 class="m-0 font-weight-bold text-primary"><i class='fas fa-comment'></i> Berikan Komentar</h6>
         </div>
         <div class="card-body">
           <div class="row">
-            <form action="{{url('/pertanyaan/')}}" method="post" class="col-lg-12">
+            <form action="{{url('/komentarpertanyaan/')}}" method="post" class="col-lg-12">
               {{ csrf_field() }}
-
               <div class="form-group">
-                <label for="Judul">Judul : </label>
-                <input type="text" name="judul" id="judul" class="form-control @error('judul') is-invalid @enderror" >
-
-                @error('judul')
-                        <div class="text-danger">{{ $message }}</div>
-                @enderror
+                    <label for="Judul"><b>Judul : </b></label>
+              <p>{{ $pertanyaan->judul }}</p>
+              </div>
+              <div class="form-group">
+                <label for="Pertanyaan"><b>Pertanyaan : </b></label>
+                <p>{!! $pertanyaan->isi !!}</p>
               </div>
 
               <div class="form-group">
-                <label for="Isi">Pertanyaan : </label>
-                <textarea name="isi" id="isi" class="form-control @error('isi') is-invalid @enderror">
+                <label for="Isi"><b>Komentar : </b></label>
+                <textarea name="komentar" id="komentar" class="form-control @error('komentar') is-invalid @enderror">
                 </textarea>
 
-               @error('isi')
+               @error('jawaban')
                         <div class="text-danger">{{ $message }}</div>
               @enderror
               </div>
-              
-              <div class="form-group">
-                <label for="Tags">Tags : </label>
-                <input type="text" name="tags" id="tags" class="form-control" placeholder="Isi Tags">
-              </div>
-
-              
+              <input type="hidden" name='pertanyaan_id' value="{{ $pertanyaan->id }}" />
+                <input type="hidden" name='slug' value="{{ $pertanyaan->slug }}" />
                 <button type="submit" class="btn btn-success">Simpan</button>
-                <a href='/pertanyaan' class="btn btn-danger">Kembali</a>
+            <a href='/jawaban/{{ $pertanyaan->slug }} ' class="btn btn-danger">Kembali</a>
             </form>
           </div>
         </div>
@@ -79,6 +73,6 @@
   @push('ckEditor')
   <script src="https://cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
   <script>
-      CKEDITOR.replace( 'isi' );
+      CKEDITOR.replace( 'komentar' );
   </script>
   @endpush

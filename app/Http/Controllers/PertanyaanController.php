@@ -3,15 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pertanyaan;
+use App\Models\Tag;
+
 use Illuminate\Http\Request;
-<<<<<<< HEAD
 use Illuminate\Support\Facades\DB;
+use RealRashid\SweetAlert\Facades\Alert;
+
 use Illuminate\Support\Facades\Validator;
-=======
-use App\Models\Pertanyaan;
 use Illuminate\Database\Eloquent\Model;
->>>>>>> bd585f2eba71165cf6566b584dbc2d538bbea2ea
 use Illuminate\Support\Facades\Auth;
+// Namespace Slug
+use Illuminate\Support\Str;
 
 class PertanyaanController extends Controller
 {
@@ -23,6 +25,12 @@ class PertanyaanController extends Controller
     public function index()
     {
         //
+        $id = Auth::id();
+        //dd($id);
+        //$pertanyaan = Pertanyaan::where('user_id', $id)->get();
+        $pertanyaan = Pertanyaan::withCount('jawaban')->where('user_id', $id)->orderBy('created_at', 'DESC')->get();
+        
+        return view('pertanyaan.index', ['pertanyaan' => $pertanyaan]);
     }
 
     /**
@@ -53,19 +61,39 @@ class PertanyaanController extends Controller
         //rules validasi inputan user
         Validator::make($request->all(), [
             'judul' => 'required',
-            'isi_tanya' => 'required'
+            'isi' => 'required'
         ], $messages)->validate();
         
+        // Get session user
         $user_id = Auth::user()->id;
 
+        // get post request
         $data = $request->all();
 
-        Pertanyaan::create([
-            'judul' => $data['judul'],
-            'isi_tanya' => $data['isi_tanya'],
-            'tags' => $data['tags'],
-            'user_id' => $user_id
-        ]);
+        // Create to Database
+        $new_pertanyaan = Pertanyaan::create([
+                            'judul' => $data['judul'],
+                            'isi' => $data['isi'],
+                            'tags' => $data['tags'],
+                            'slug' => Str::slug($data['judul'], '-'), // Make Slug Link
+                            'user_id' => $user_id
+                        ]);
+        
+        $tagArra = explode(',', $data['tags']);
+        //$tagMulti = array();
+        foreach ($tagArra as  $value) {
+            # code...
+            $tagArrAssoc["name"] = trim($value);
+            $tag = Tag::firstOrCreate($tagArrAssoc);
+
+            $new_pertanyaan->tags()->attach($tag->id);
+            
+        }
+        //dd($tagMulti);
+        //dd($tag)
+        // Crete Tag baru
+        //$tag = Tag::firstOrCreate($tagMulti);
+        Alert::success('Berhasil', 'Menambahkan Pertanyaan Baru');
 
         return redirect('/pertanyaan');
     }
@@ -79,7 +107,9 @@ class PertanyaanController extends Controller
     public function show($id)
     {
         $id = Auth::id();
-        $pertanyaan = Pertanyaan::where('user_id', $id)->get();
+        //dd($id);
+        //$pertanyaan = Pertanyaan::where('user_id', $id)->get();
+        $pertanyaan = Pertanyaan::withCount('jawaban')->where('user_id', $id)->orderBy('created_at', 'DESC')->get();
         
         return view('pertanyaan.show', ['pertanyaan' => $pertanyaan]);
         
@@ -118,6 +148,16 @@ class PertanyaanController extends Controller
 
     {
         //
+
+        $deletedRows = Pertanyaan::where('id', $id)->delete();
+        if($deletedRows == 1){
+            Alert::success('Berhasil', 'Menghapus Data');      
+        }else{
+            Alert::error('Gagal', 'Menghapus Data'); 
+        }
+
+        return redirect('/pertanyaan');
+       
     }
 
 }

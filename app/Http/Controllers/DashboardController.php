@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 use App\User;
 
@@ -11,6 +12,8 @@ use App\Models\PertanyaanVote;
 use App\Models\JawabanVote;
 use App\Models\JawabanKomentar;
 use App\Models\KomentarPertanyaan;
+
+
 
 class DashboardController extends Controller
 {
@@ -32,6 +35,7 @@ class DashboardController extends Controller
         $new_issue = Pertanyaan::withCount('jawaban')->orderBy('created_at', 'DESC')->first();
 
         
+        //dd(Auth::user());
         
         $data = array(
             'total_participant' => count($users),

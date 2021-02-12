@@ -17,20 +17,36 @@ Auth::routes();
 
 // Controller General 
 Route::get('/', 'DashboardController@index');
-
 Route::get('/hot', 'IssueController@hot');
-
-Route::get('/viewadd', 'IssueController@new');
-
+//Route::get('/viewadd', 'IssueController@new');
 Route::get('/new', 'IssueController@new');
 
-Route::get('/pertanyaan/create', 'PertanyaanController@create');
+// Middleware untuk proses auth, sehingga org harus login dulu baru bisa akses 
+Route::group(['middleware' => 'auth'], function(){
+    Route::resource('pertanyaan', 'PertanyaanController');
+    Route::resource('jawaban', 'JawabanController');
+    Route::get('/jawaban/tambah/{slug}', 'JawabanController@tambah');
+    // Vote Pertanyaan
+    Route::get('/pertanyaanvoteup/{pertanyaan_id}', 'VoteController@pertanyaanvoteup');
+    Route::get('/pertanyaanvotedown/{pertanyaan_id}', 'VoteController@pertanyaanvotedown');
 
+    // Vote Jawaban
+    Route::get('/jawabanvoteup/{jawaban_id}', 'VoteController@jawabanvoteup');
+    Route::get('/jawabanvotedown/{jawaban_id}', 'VoteController@jawabanvotedown');
 
-// Controller Master-master
-// Master Pertanyaan
-Route::resource('pertanyaan', 'PertanyaanController');
+    // Komentar Pertanyaan
+    Route::get('/komentarpertanyaan/{pertanyaan_id}', 'KomentarPertanyaanController@create');
+    Route::post('/komentarpertanyaan', 'KomentarPertanyaanController@store');
 
-// Master Jawaban
-Route::resource('jawaban', 'JawabanController');
+    // Komentar Jawaban
+    Route::get('/komentarjawaban/{jawaban_id}', 'KomentarJawabanController@create');
+    Route::post('/komentarjawaban', 'KomentarJawabanController@store');
+
+    
+});
+
+// Route::group(['prefix' => 'laravel-filemanager', 'middleware' => ['web', 'auth']], function () {
+//     \UniSharp\LaravelFilemanager\Lfm::routes();
+// });
+
 
